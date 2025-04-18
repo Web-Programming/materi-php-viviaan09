@@ -9,12 +9,12 @@
     <?php echo "<h1>Welcome to my First Website with PHP</h1>"; ?>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    <p>My Name is <?php echo "<b> Vionetha Lavega </b>"; ?></p>
+    <p>My Name is <?php echo "<b> Vivian </b>"; ?></p>
     <hr/>
     <h4>Menulis Variabel di PHP</h4>
     <?php
         //Variabel Dinamis 
-        $nama = "Vionetha Lavega"; //string
+        $nama = "Vivian"; //string
         $umur = 20; //number
         $perempuan = true; //boolean
         $saldo = null; //null
