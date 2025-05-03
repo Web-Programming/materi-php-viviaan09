@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,3 +16,5 @@ Route::get('/home', function () {
 Route::get('/berita/{id}/{judul?}', function ($id, $judul = null) {
     return view('berita', ['id' => $id], ['judul' =>$judul]);
 });
+
+Route::get('/prodi/index', [ProdiController::class,'index']);
