@@ -1,3 +1,5 @@
-<div>
-    <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
-</div>
+@extends('layouts.master')
+
+@section('content')
+    <h1>Halaman index - Fakultas</h1>
+@endsection

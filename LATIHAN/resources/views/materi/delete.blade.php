@@ -1,3 +1,5 @@
-<div>
-    <!-- An unexamined life is not worth living. - Socrates -->
-</div>
+@extends('layouts.master')
+
+@section('content')
+    <h1>Halaman delete - Materi</h1>
+@endsection

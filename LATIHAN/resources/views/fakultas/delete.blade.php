@@ -1,3 +1,5 @@
-<div>
-    <!-- He who is contented is rich. - Laozi -->
-</div>
+@extends('layouts.master')
+
+@section('content')
+    <h1>Halaman delete - Fakultas</h1>
+@endsection

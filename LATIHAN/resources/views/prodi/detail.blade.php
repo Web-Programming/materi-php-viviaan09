@@ -1,3 +1,5 @@
-<div>
-    <!-- Life is available only in the present moment. - Thich Nhat Hanh -->
-</div>
+@extends('layouts.master')
+
+@section('content')
+    <h1>Halaman detail - Prodi</h1>
+@endsection
