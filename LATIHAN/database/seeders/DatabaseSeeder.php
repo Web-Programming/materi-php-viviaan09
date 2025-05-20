@@ -26,9 +26,9 @@ class DatabaseSeeder extends Seeder
       //sama seperti menjalankan fungsi insert into di sql workbench
 
       //mengupdate data
-      DB::table("users")
-      ->where("id", 1)
-      ->update([
+DB::table("users")
+    ->where("id", 1)
+    ->update([
         'password' => Hash::make("123456")
         ]);
 
