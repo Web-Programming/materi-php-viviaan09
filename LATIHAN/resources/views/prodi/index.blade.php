@@ -72,7 +72,7 @@
           <td>{{ $prodi->kode_prodi }}</td>
           <td>{{ $prodi->logo }}
           @if ($prodi->logo)
-        <img src="{{ asset('images/' . $prodi->logo) }}" alt="" width="100px">
+        <img src="{{ asset('images/si rumput.jpg' . $prodi->logo) }}" alt="logo {{ $prodi->nama }}" width="100px">
         @else
         <p>Logo tidak ada</p>
         @endif
