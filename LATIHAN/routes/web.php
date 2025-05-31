@@ -8,28 +8,47 @@ use App\Http\Controllers\UserController;
 use App\Http\Middleware\CekLogin;
 use Illuminate\Support\Facades\Route;
 
-// Default redirect to login
 Route::get('/', [AuthController::class, 'login']);
 
-// Authentication Routes
+// Route::get('/home', function(){
+//     return view('beranda',
+//     [
+//             'name' => 'Vivian',
+//             'email' => 'ngvivian682@gmail.com',
+//             'alamat' => 'Palembang'
+//         ]
+//     );
+// });
+
+// Route::get('/berita/{id}/{judul?}', function($id, $judul = null){
+//     return view('berita', ['id' => $id, 'judul' => $judul]);
+// });
+
+//membuat route ke halam prodi index melalui controller ProdiController
+//Route::get('/prodi/index', [ProdiController::class,'index']);
+
+//Route::resource('prodi', ProdiController::class);
+
+//Authentication
 Route::get("/login", [AuthController::class, 'login'])->name('login');
 Route::post("/login", [AuthController::class, 'do_login']);
 Route::get("/register", [AuthController::class, 'register']);
 Route::post("/register", [AuthController::class, 'do_register']);
 Route::get("/logout", [AuthController::class, 'logout']);
 
-// Route Group with Authentication
-Route::middleware(['auth'])->group(function () {
+// Route Grouping with Middleware
+Route::group(['middleware' => ['auth']], function () {
+    Route::get("/admin", [AdminController::class, 'index'])
+        ->middleware(CekLogin::class . ':admin');
+    Route::get("/user", [UserController::class, 'index'])
+        ->middleware(CekLogin::class . ':user');
 
-    // Admin Role
-    Route::middleware([CekLogin::class . ':admin'])->group(function () {
-        Route::get("/admin", [AdminController::class, 'index']);
+    Route::prefix('admin')->group(function () {
         Route::resource('prodi', ProdiController::class);
         Route::resource('fakultas', FakultasController::class);
-    });
+    })->middleware(CekLogin::class . ':admin');
 
-    // User Role
-    Route::middleware([CekLogin::class . ':user'])->group(function () {
-        Route::get("/user", [UserController::class, 'index']);
-    });
-});    
+    Route::prefix('user')->group(function () {
+        Route::resource('prodi', ProdiController::class);
+    })->middleware(CekLogin::class . ':user');
+});
