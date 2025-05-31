@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProdiController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdiController;
 
 Route::get('/', function () {
     return view('welcome');
